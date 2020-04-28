@@ -2,4 +2,4 @@
 
 Cláudia Castiço
 Vasco Martins
-Uttam gurung
+Uttam Gurung
