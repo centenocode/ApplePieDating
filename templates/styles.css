@@ -1,0 +1,22 @@
+body {
+  background-image: url('images/bg.jpg');
+  padding-top: 8%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+
+}
+
+
+.jumbotron {
+  color: #fff;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.login {
+  font-size: 1.8em;
+}
+
+.icon {
+  width: 10%;
+  text-shadow: -1px 14px 6px rgba(150, 150, 150, 1);
+}
