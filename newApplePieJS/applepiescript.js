@@ -38,7 +38,7 @@ $(document).ready(function() {
             console.log('user ID' + users[i].ID);
             if(score==10){
             currentUser.matches.push(users[i].ID)
-            console.log(currentUser.matches);
+            console.log(currentUser.matches);   
 
         }
     }
