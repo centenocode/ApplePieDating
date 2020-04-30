@@ -1,15 +1,19 @@
 package org.academiadecodigo.hackstreetboys.ApplePieDating.controller;
 
+import org.academiadecodigo.hackstreetboys.ApplePieDating.User;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
 @RestController
-@RequestMapping("/api")
-public class RestIndexController {
+    @RequestMapping("/api")
+public class ResourceController {
 
     /**
      * Retrieves the API name and version
      *
      * @return the response
      */
-    @RequestMapping(method = RequestMethod.GET, path = {"/", ""})
+    @RequestMapping(method = RequestMethod.GET, path = {"/api", ""})
     @ResponseBody
     protected ApiVersion showVersion() {
 
@@ -18,6 +22,8 @@ public class RestIndexController {
         version.setVersion("v0.1");
 
         return version;
+
+
 
     }
 
