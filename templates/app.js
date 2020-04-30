@@ -1,6 +1,10 @@
 
 var currentUser = {"_id":"5eaa614fe6280703e8ec224e","name":"Lucas","preferences":["1","3","5","7","9","11","13","15","17","19"], "matches":[]}
 
+currentPreferences = [];
+var users = [];
+
+
 var pic = ["images/footballgd.jpg", "images/sushi.png", "images/noise.png", "images/dontlisten1.png",
   "images/party.png", "images/milk.png", "images/pinapple.png", "images/drive.png", "images/column.png", "images/atm-line.png"
 ];
@@ -13,17 +17,13 @@ var dislikeBtn = document.querySelector(".dislike");
 
 var imageNumber = 0;
 var questionNumber = 0;
-currentPreferences = [];
-var users;
 
 
 
 heartBtn.addEventListener('click', changeImage);
-
 function changeImage() {
   saveLoveAnswer();
   console.log(currentPreferences);
-  callEnds();
   imageNumber = (imageNumber + 1) % pic.length;
   questionNumber = (questionNumber + 1) % questions.length;
   document.getElementById("myImg").src = pic[imageNumber];
@@ -45,7 +45,6 @@ function saveLoveAnswer(){
 
 
 dislikeBtn.addEventListener('click', changeImage);
-
 function changeImage() {
   saveHateAnswer();
   console.log(currentPreferences);
@@ -73,7 +72,6 @@ function saveHateAnswer(){
 
 function callEnds(){
   if(imageNumber== 9){
-    fetchUsers();
     calculateMatch();
     currentUser.matches.push()
     saveMatchCloud();
@@ -81,23 +79,6 @@ function callEnds(){
   }
 }
 
-
-function fetchUsers(){var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://crudcrud.com/api/163726ed5a8444559cdc75baf2926bda/user",
-  "method": "GET",
-  "headers": {
-    "Content-Type": "application/javascript",
-    "cache-control": "no-cache",
-    "Postman-Token": "6db65d2f-a8fd-46c4-9cdd-b7ce1899b0ca"
-  }
-}
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
-}
 
 var users1 = [
   {"_id":"5eaa68bae6280703e8ec225a","name":"Lucas", "preferences":["1", "3", "5", "7", "9", "11", "13", "15", "17", "19"], "matches":["5eaa68bae6280703e8ec27dc"]},
@@ -130,9 +111,10 @@ function calculateMatch(){
 }
 }
 
+
 function saveMatchCloud(){
 
-  fetch('https://crudcrud.com/api/163726ed5a8444559cdc75baf2926bda/user', {
+  fetch('https://crudcrud.com/api/097cc75ebe0244178a06b798ae54a50d/user', {
   headers: { "Content-Type": "application/json; charset=utf-8" },
   method: 'POST',
   body: JSON.stringify({
